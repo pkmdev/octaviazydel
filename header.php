@@ -27,33 +27,39 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$octaviazydel_description = get_bloginfo( 'description', 'display' );
-			if ( $octaviazydel_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $octaviazydel_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
+			<?php the_custom_logo(); ?>
 		</div><!-- .site-branding -->
-
+	</header><!-- #masthead -->
+	<div class="site-menu-sidebar">
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'octaviazydel' ); ?></button>
+
 			<?php
 			wp_nav_menu(
 				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
+					'theme_location' => 'main',
+					'menu_id'        => 'main-menu',
 				)
 			);
 			?>
+			<button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
+				<i class="icon-menu-arrows"></i>
+				<?php esc_html_e( 'menu', 'octaviazydel' ); ?>
+			</button>
 		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		<?php if (!is_front_page()) { ?>
+			<nav id="alt-navigation" class="alt-navigation">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'alt',
+						'menu_id'        => 'alt-menu',
+					)
+				);
+				?>
+			</nav>
+		<?php } else { ?>
+			<aside>
+					<?php bloginfo( 'description' ); ?>
+			</aside>
+		<?php } ?>
+	</div>

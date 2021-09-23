@@ -21,7 +21,6 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
-
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -49,19 +48,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
-
 /* Normalize
 --------------------------------------------- */
-
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
 /* Document
 	 ========================================================================== */
-
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -73,7 +67,6 @@ html {
 
 /* Sections
 	 ========================================================================== */
-
 /**
  * Remove the margin in all browsers.
  */
@@ -99,7 +92,6 @@ h1 {
 
 /* Grouping content
 	 ========================================================================== */
-
 /**
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
@@ -121,7 +113,6 @@ pre {
 
 /* Text-level semantics
 	 ========================================================================== */
-
 /**
  * Remove the gray background on active links in IE 10.
  */
@@ -187,7 +178,6 @@ sup {
 
 /* Embedded content
 	 ========================================================================== */
-
 /**
  * Remove the border on images inside links in IE 10.
  */
@@ -197,7 +187,6 @@ img {
 
 /* Forms
 	 ========================================================================== */
-
 /**
  * 1. Change the font styles in all browsers.
  * 2. Remove the margin in Firefox and Safari.
@@ -343,7 +332,6 @@ textarea {
 
 /* Interactive
 	 ========================================================================== */
-
 /*
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
@@ -360,7 +348,6 @@ summary {
 
 /* Misc
 	 ========================================================================== */
-
 /**
  * Add the correct display in IE 10+.
  */
@@ -377,7 +364,6 @@ template {
 
 /* Box sizing
 --------------------------------------------- */
-
 /* Inherit box-sizing to more easily change it's value on a component level.
 @link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 *,
@@ -393,17 +379,38 @@ html {
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
-
 /* Typography
 --------------------------------------------- */
+@font-face {
+	font-family: "Museo Sans";
+	src: url("fonts/MuseoSans_100-webfont.woff") format("woff"), url("fonts/MuseoSans_100-webfont.woff2") format("woff2");
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Museo Sans";
+	src: url("fonts/MuseoSans_300-webfont.woff") format("woff"), url("fonts/MuseoSans_300-webfont.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Span";
+	src: url("fonts/Span-semibold.woff") format("woff"), url("fonts/Span-semibold.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+}
+
 body,
 button,
 input,
 select,
 optgroup,
 textarea {
-	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	color: var(--wp--preset--color--sand);
+	font-family: "Muso Sans", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-weight: 100;
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -415,6 +422,7 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: "Span", "Times", serif;
 }
 
 p {
@@ -469,10 +477,70 @@ big {
 	font-size: 125%;
 }
 
+@font-face {
+	font-family: 'octaviazydel-icons';
+	src: url("fonts/octaviazydel-icons.eot?cqml2u");
+	src: url("fonts/octaviazydel-icons.eot?cqml2u#iefix") format("embedded-opentype"), url("fonts/octaviazydel-icons.ttf?cqml2u") format("truetype"), url("fonts/octaviazydel-icons.woff?cqml2u") format("woff"), url("fonts/octaviazydel-icons.svg?cqml2u#octaviazydel-icons") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'octaviazydel-icons' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]::before, [class*=" icon-"]::before {
+	display: inline-block;
+}
+
+.icon-youtube:before {
+	content: "\e902";
+}
+
+.icon-linked-in:before {
+	content: "\e903";
+}
+
+.icon-phone:before {
+	content: "\e906";
+}
+
+.icon-location:before {
+	content: "\e907";
+}
+
+.icon-menu-arrows:before {
+	content: "\e900";
+}
+
+.icon-email:before {
+	content: "\e901";
+}
+
+.icon-send:before {
+	content: "\e908";
+}
+
 /* Elements
 --------------------------------------------- */
+html {
+	min-height: 100%;
+}
+
 body {
-	background: #fff;
+	min-height: 100%;
+	background: var(--wp--preset--color--blue-800);
 }
 
 hr {
@@ -533,26 +601,22 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #4169e1;
+	color: var(--wp--preset--color--sand);
+	text-decoration: none;
 }
 
 a:visited {
-	color: #800080;
+	color: var(--wp--preset--color--sand);
 }
 
-a:hover,
-a:focus,
-a:active {
-	color: #191970;
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
+a:hover, a:focus, a:active {
 	outline: 0;
+	color: var(--wp--preset--color--sand);
+}
+
+a:hover, a:active, a:focus {
+	border-bottom: 1px dotted;
+	margin-bottom: -1px;
 }
 
 /* Forms
@@ -577,8 +641,7 @@ input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa;
 }
 
-button:active,
-button:focus,
+button:active, button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -640,26 +703,108 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+.site {
+	min-height: 100%;
+	display: grid;
+	grid-template-columns: 90px auto;
+	grid-template-areas: "header header" "sidebar main" "footer footer";
+}
+
+.site-header {
+	grid-area: header;
+}
+
+.site-main {
+	grid-area: main;
+	overflow: hidden;
+	/* Resolves issue with <pre> elements forcing full width. */
+}
+
+.widget-area {
+	grid-area: sidebar;
+}
+
+.site-footer {
+	grid-area: footer;
+}
+
+.no-sidebar .site {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-areas: "header" "main" "footer";
+}
 
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
-	display: block;
-	width: 100%;
+.site-menu-sidebar {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 90px;
+	color: var(--wp--preset--color--mustard-400);
+	font-family: "Span", "Times", serif;
+	/* Small menu. */
 }
 
-.main-navigation ul {
-	display: none;
+.site-menu-sidebar::after {
+	content: '';
+	display: block;
+	height: 25%;
+	width: 2px;
+	background-color: currentColor;
+}
+
+.site-menu-sidebar .main-navigation {
+	display: block;
+	width: 100%;
+	flex: 0 0 90px;
+	isolation: isolate;
+	z-index: 5;
+}
+
+.site-menu-sidebar .main-navigation > div {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 33%;
+	min-width: 300px;
+	color: var(--wp--preset--color--blue-900);
+	background: var(--wp--preset--gradient--dark-blue-medium-blue);
+	border-radius: 0 2rem 2rem 0;
+	transform: translateX(-100%);
+	transition: transform 500ms ease;
+	display: grid;
+	grid-template-columns: 90px auto;
+	grid-template-rows: 90px auto;
+	grid-template-areas: "toggle menu" "sidebar menu";
+}
+
+.site-menu-sidebar .main-navigation > div .menu-inner-sidebar {
+	grid-area: sidebar;
+}
+
+.site-menu-sidebar .main-navigation > div ul {
+	grid-area: menu;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: flex-start;
 }
 
-.main-navigation ul ul {
+.site-menu-sidebar .main-navigation > div ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
@@ -668,77 +813,137 @@ textarea {
 	z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.site-menu-sidebar .main-navigation > div ul ul ul {
 	left: -999em;
 	top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.site-menu-sidebar .main-navigation > div ul ul li:hover > ul,
+.site-menu-sidebar .main-navigation > div ul ul li.focus > ul {
 	display: block;
 	left: auto;
 }
 
-.main-navigation ul ul a {
+.site-menu-sidebar .main-navigation > div ul ul a {
 	width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.site-menu-sidebar .main-navigation > div ul li:hover > ul,
+.site-menu-sidebar .main-navigation > div ul li.focus > ul {
 	left: auto;
 }
 
-.main-navigation li {
+.site-menu-sidebar .main-navigation > div li {
 	position: relative;
 }
 
-.main-navigation a {
+.site-menu-sidebar .main-navigation > div a {
 	display: block;
 	text-decoration: none;
+	font-size: 1.6rem;
+	line-height: 2.5rem;
+	margin-left: 2rem;
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
+.site-menu-sidebar .main-navigation .menu-toggle {
+	padding: 1rem;
+	margin: auto;
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	background: unset;
+	border: unset;
+	cursor: pointer;
+	color: var(--wp--preset--color--mustard-400);
 }
 
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
+.site-menu-sidebar .main-navigation .menu-toggle i {
+	font-size: 2.5rem;
+	transition: transform 500ms ease;
 }
 
-.site-main .comment-navigation,
-.site-main
-.posts-navigation,
-.site-main
-.post-navigation {
+.site-menu-sidebar .main-navigation .menu-toggle:hover i {
+	transform: translateX(0.5rem);
+}
+
+.site-menu-sidebar .main-navigation.toggled .menu-toggle:hover i {
+	transform: translateX(-0.5rem);
+}
+
+.site-menu-sidebar .main-navigation.toggled .menu-toggle i::before {
+	transform: rotateY(180deg);
+}
+
+.site-menu-sidebar .alt-navigation, .site-menu-sidebar aside {
+	flex: 1 1 auto;
+	text-align: center;
+	writing-mode: vertical-lr;
+	transform: rotate(180deg);
+	font-family: "Muso Sans", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.site-menu-sidebar aside .inner-content {
+	text-align: center;
+	writing-mode: vertical-lr;
+	transform: rotate(180deg);
+}
+
+.site-menu-sidebar .alt-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-menu-sidebar .alt-navigation li {
+	display: inline;
+	padding: 1em;
+}
+
+.site-menu-sidebar .alt-navigation a {
+	color: var(--wp--preset--color--mustard-400);
+}
+
+.site-menu-sidebar .alt-navigation a:hover, .site-menu-sidebar .alt-navigation a:active, .site-menu-sidebar .alt-navigation a:focus {
+	border-bottom: 0px dotted;
+	margin-bottom: 0px;
+	border-left: 1px dotted;
+	margin-left: -1px;
+}
+
+.site-menu-sidebar .menu-toggle,
+.site-menu-sidebar .main-navigation.toggled > div {
+	transform: translateX(0%);
+}
+
+.site-main .site-menu-sidebar .comment-navigation, .site-main
+.site-menu-sidebar .posts-navigation, .site-main
+.site-menu-sidebar .post-navigation {
 	margin: 0 0 1.5em;
 }
 
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
+.site-menu-sidebar .comment-navigation .nav-links,
+.site-menu-sidebar .posts-navigation .nav-links,
+.site-menu-sidebar .post-navigation .nav-links {
 	display: flex;
 }
 
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
+.site-menu-sidebar .comment-navigation .nav-previous,
+.site-menu-sidebar .posts-navigation .nav-previous,
+.site-menu-sidebar .post-navigation .nav-previous {
 	flex: 1 0 50%;
 }
 
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
+.site-menu-sidebar .comment-navigation .nav-next,
+.site-menu-sidebar .posts-navigation .nav-next,
+.site-menu-sidebar .post-navigation .nav-next {
 	text-align: end;
 	flex: 1 0 50%;
+}
+
+body.admin-bar div.site-menu-sidebar, body.admin-bar div#main-menu {
+	top: 32px !important;
 }
 
 /* Posts and pages
@@ -877,10 +1082,8 @@ textarea {
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
-
 /* Jetpack infinite scroll
 --------------------------------------------- */
-
 /* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
@@ -895,10 +1098,8 @@ textarea {
 /*--------------------------------------------------------------
 # Utilities
 --------------------------------------------------------------*/
-
 /* Accessibility
 --------------------------------------------- */
-
 /* Text meant only for screen readers. */
 .screen-reader-text {
 	border: 0;
@@ -941,20 +1142,16 @@ textarea {
 /* Alignments
 --------------------------------------------- */
 .alignleft {
-
 	/*rtl:ignore*/
 	float: left;
-
 	/*rtl:ignore*/
 	margin-right: 1.5em;
 	margin-bottom: 1.5em;
 }
 
 .alignright {
-
 	/*rtl:ignore*/
 	float: right;
-
 	/*rtl:ignore*/
 	margin-left: 1.5em;
 	margin-bottom: 1.5em;
@@ -967,3 +1164,5 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+/*# sourceMappingURL=style.css.map */

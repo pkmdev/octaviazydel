@@ -1,109 +1,248 @@
-.main-navigation {
-	display: block;
-	width: 100%;
+.site-menu-sidebar {
+	display:flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	width:$size__site-sidebar;
+	color: var(--wp--preset--color--mustard-400);
+	font-family: $font__header;
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+	&::after {
+		content: '';
+		display:block;
+		height:25%;
+		width:2px;
+		background-color: currentColor;
+	}
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+	.main-navigation {
+		display: block;
+		width: 100%;
+		flex: 0 0 $size__site-sidebar;
+		isolation: isolate;
+		z-index:5;
 
-			ul {
-				left: -999em;
-				top: 0;
+		& > div {
+			display: block;
+			position:fixed;
+			top:0;
+			left:0;
+			bottom:0;
+			width:33%;
+			min-width:300px;
+			color: var(--wp--preset--color--blue-900);
+			background: var(--wp--preset--gradient--dark-blue-medium-blue);
+			border-radius: 0 2rem 2rem 0;
+			transform: translateX(-100%);
+			transition: transform 500ms ease;
+			display: grid;
+			grid-template-columns: ($size__site-sidebar) auto;
+			grid-template-rows: ($size__site-sidebar) auto;
+			grid-template-areas:
+				"toggle menu"
+				"sidebar menu";
+
+			.menu-inner-sidebar {
+				grid-area: sidebar;
 			}
 
-			li {
 
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
+
+			ul {
+				grid-area: menu;
+				list-style: none;
+				margin: 0;
+				padding-left: 0;
+				display: flex;
+				flex-flow: column;
+				justify-content: space-around;
+				align-items: flex-start;
+
+
+				ul {
+					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+					float: left;
+					position: absolute;
+					top: 100%;
+					left: -999em;
+					z-index: 99999;
+
+					ul {
+						left: -999em;
+						top: 0;
+					}
+
+					li {
+
+						&:hover > ul,
+						&.focus > ul {
+							display: block;
+							left: auto;
+						}
+					}
+
+					a {
+						width: 200px;
+					}
+
+					:hover > a,
+					.focus > a {
+					}
+
+					a:hover,
+					a.focus {
+					}
+				}
+
+				li:hover > ul,
+				li.focus > ul {
 					left: auto;
 				}
 			}
 
+			li {
+				position: relative;
+
+				&:hover > a,
+				&.focus > a {
+				}
+			}
+
 			a {
-				width: 200px;
+				display: block;
+				text-decoration: none;
+				font-size: 1.6rem;
+				line-height:2.5rem;
+				margin-left:2rem;
 			}
 
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
+			.current_page_item > a,
+			.current-menu-item > a,
+			.current_page_ancestor > a,
+			.current-menu-ancestor > a {
 			}
 		}
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
+		.menu-toggle {
+			padding:1rem;
+			margin:auto;
+			display:flex;
+			flex-flow: column;
+			text-align:center;
+			justify-content: center;
+			align-items: center;
+			background:unset;
+			border: unset;
+			cursor: pointer;
+			color: var(--wp--preset--color--mustard-400);
+
+			i {
+				font-size:2.5rem;
+				transition:transform 500ms ease;
+			}
+			&:hover {
+				i {
+					transform:translateX(.5rem);
+				}
+			}
+		}
+		&.toggled {
+			.menu-toggle {
+				&:hover {
+					i {
+						transform:translateX(-.5rem);
+					}
+				}
+				i::before {
+					transform:rotateY(180deg);
+				}
+			}
 		}
 	}
 
-	li {
-		position: relative;
+	.alt-navigation, aside {
+		flex: 1 1 auto;
+		text-align: center;
+		writing-mode: vertical-lr;
+		transform: rotate(180deg);
+		font-family: $font__main;
 
-		&:hover > a,
-		&.focus > a {
+	}
+	aside .inner-content {
+		text-align: center;
+		writing-mode: vertical-lr;
+		transform: rotate(180deg);
+	}
+	.alt-navigation{
+		ul {
+			list-style: none;
+			margin:0;
+			padding:0;
+		}
+		li {
+			display: inline;
+			padding:1em;
+		}
+		a {
+			color: var(--wp--preset--color--mustard-400);
+
+			&:hover,
+			&:active,
+			&:focus {
+				border-bottom: 0px dotted;
+		    margin-bottom: 0px;
+				border-left: 1px dotted; //UP is DOWN, LEFT is RIGHT due to the translate;
+		    margin-left: -1px;
+			}
 		}
 	}
 
-	a {
-		display: block;
-		text-decoration: none;
+	/* Small menu. */
+	.menu-toggle,
+	.main-navigation.toggled > div {
+		//display: block !important;
+		transform: translateX(0%);
 	}
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
+
+
+	// @media screen and (min-width: 37.5em) {
+	//
+	// 	.menu-toggle {
+	// 		display: none;
+	// 	}
+	//
+	// 	.main-navigation ul {
+	// 		display: flex;
+	// 	}
+	// }
+
+	.comment-navigation,
+	.posts-navigation,
+	.post-navigation {
+
+		.site-main & {
+			margin: 0 0 1.5em;
+		}
+
+		.nav-links {
+			display: flex;
+		}
+
+		.nav-previous {
+			flex: 1 0 50%;
+		}
+
+		.nav-next {
+			text-align: end;
+			flex: 1 0 50%;
+		}
 	}
 }
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
-}
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
-
-	.nav-links {
-		display: flex;
-	}
-
-	.nav-previous {
-		flex: 1 0 50%;
-	}
-
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
-	}
+body.admin-bar div.site-menu-sidebar, body.admin-bar div#main-menu  {
+	top: 32px !important;
 }

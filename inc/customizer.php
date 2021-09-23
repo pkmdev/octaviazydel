@@ -59,3 +59,13 @@ function octaviazydel_customize_preview_js() {
 	wp_enqueue_script( 'octaviazydel-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'octaviazydel_customize_preview_js' );
+
+function octaviazydel_remove_options( $wp_customize ) {
+ $wp_customize->remove_control("header_image");
+ $wp_customize->remove_panel("widgets");
+ $wp_customize->remove_section("colors");
+ $wp_customize->remove_section("background_image");
+ $wp_customize->remove_section("static_front_page");
+}
+
+add_action( "customize_register", "octaviazydel_remove_options" );

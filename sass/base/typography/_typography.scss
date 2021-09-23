@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Museo Sans";
+  src: url("fonts/MuseoSans_100-webfont.woff") format('woff'), url("fonts/MuseoSans_100-webfont.woff2") format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Museo Sans";
+	src: url("fonts/MuseoSans_300-webfont.woff") format('woff'), url("fonts/MuseoSans_300-webfont.woff2") format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Span";
+	src: url("fonts/Span-semibold.woff") format('woff'), url("fonts/Span-semibold.woff2") format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+
 body,
 button,
 input,
@@ -6,6 +26,7 @@ optgroup,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
+	font-weight:100;
 	font-size: 1rem;
 	line-height: $font__line-height-body;
 }

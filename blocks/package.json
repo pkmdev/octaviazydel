@@ -1,8 +1,8 @@
 {
 	"name": "oz",
 	"version": "0.1.0",
-	"description": "Projects block for oz Director's page",
-	"author": "PKM",
+	"description": "Blocks octaviazydel",
+	"author": "Peter K MOrrison",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
