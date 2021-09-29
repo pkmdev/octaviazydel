@@ -26,34 +26,27 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'octaviazydel' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$octaviazydel_description = get_bloginfo( 'description', 'display' );
-			if ( $octaviazydel_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $octaviazydel_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'octaviazydel' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+		<?php if (!is_front_page()) { ?>
+			<div class="site-branding">
+				<?php $altlogo = get_post_meta($post->ID, 'page_logo', true);
+				if ($altlogo) {echo '<img src="'.wp_get_attachment_image_url($altlogo, 'full').'"/>'; }
+				else {the_custom_logo();} ?>
+			</div><!-- .site-branding -->
+		<?php } ?>
 	</header><!-- #masthead -->
+	<div class="site-menu-sidebar">
+		<nav id="site-navigation" class="main-navigation">
+			<div class="slide-out-menu">
+				<?php get_template_part( 'template-parts/menu', 'slideout' ); ?>
+			</div>
+			<button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
+				<i class="icon-menu-arrows"></i>
+				<?php esc_html_e( 'menu', 'octaviazydel' ); ?>
+			</button>
+		</nav><!-- #site-navigation -->
+		<?php if (!is_front_page()) { ?>
+			<?php get_template_part( 'template-parts/menu', 'sidebar' ); ?>
+		<?php } else { ?>
+			<?php get_template_part( 'template-parts/sidebar', 'home' ); ?>
+		<?php } ?>
+	</div>

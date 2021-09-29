@@ -34,6 +34,43 @@ function octaviazydel_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'octaviazydel_customize_register' );
 
+/** Footer Options */
+function octaviazydel_site_customize_register( $wp_customize ) {
+
+
+
+	$wp_customize->add_section( 'octaviazydel_social_media_links',
+	    array(
+	        'title'         => __( 'Social Media Links', 'octaviazydel' ),
+	        'priority'      => 40,
+	        //'panel'         => 'octaviazydel_theme_options'
+	    )
+	);
+
+	global $octaviazydel_social;
+
+	foreach ($octaviazydel_social as $social) {
+
+		$wp_customize->add_setting( "octaviazydel_".$social['slug']."_link",
+	    array(
+	        'sanitize_callback' => 'sanitize_text_field',
+	    )
+		);
+		$wp_customize->add_control( "octaviazydel_".$social['slug']."_link",
+	    array(
+	        'type'        => 'text',
+	        'priority'    => $social['priority'],
+	        'section'     => 'octaviazydel_social_media_links',
+	        'label'       => $social['title'],
+	        'description' => $social['title']." page URL",
+	    )
+		);
+	}
+
+}
+
+add_action( 'customize_register', 'octaviazydel_site_customize_register' );
+
 /**
  * Render the site title for the selective refresh partial.
  *
@@ -59,3 +96,13 @@ function octaviazydel_customize_preview_js() {
 	wp_enqueue_script( 'octaviazydel-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'octaviazydel_customize_preview_js' );
+
+function octaviazydel_remove_options( $wp_customize ) {
+ $wp_customize->remove_control("header_image");
+ $wp_customize->remove_panel("widgets");
+ $wp_customize->remove_section("colors");
+ $wp_customize->remove_section("background_image");
+ $wp_customize->remove_section("static_front_page");
+}
+
+add_action( "customize_register", "octaviazydel_remove_options" );

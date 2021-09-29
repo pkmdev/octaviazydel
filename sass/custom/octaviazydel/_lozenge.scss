@@ -1,0 +1,45 @@
+.lozenge__nav {
+  list-style: none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:2em;
+  max-width: 80%;
+  margin-inline: auto;
+
+  @media (min-width: $breakpoint_md) {
+    flex-direction:row;
+  }
+
+  .lozenge__nav__item {
+    display: inline-block;
+    flex: 1 1 150px;
+    height:.75rem;
+    border-radius: 1000px;
+    text-align:center;
+    transition:transform 300ms ease, box-shadow 300ms ease;
+    box-shadow: 0 5px 5px #aaa;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 12.5px #aaa;
+
+      a {
+        transform: translateY(5px);
+      }
+    }
+
+    a {
+      transition:transform 300ms ease;
+      padding-top:2rem;
+      display: block;
+      text-transform: lowercase;
+      font-size: .8rem;
+      font-weight:200;
+      &:hover {
+        border:unset;
+      }
+    }
+  }
+}

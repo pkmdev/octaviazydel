@@ -1,109 +1,380 @@
-.main-navigation {
-	display: block;
-	width: 100%;
+.site-menu-sidebar {
+	display:flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	position:fixed;
+	color: var(--wp--preset--color--mustard-400);
+	font-family: $font__header;
+	isolation: isolate;
+	z-index: 10;
+	right:0;
+	bottom:20%;
+	gap:1em;
+	@media (min-width: $breakpoint_md) {
+		right:unset;
+		top:0;
+		left:0;
+		bottom:0;
+		width:$size__site-sidebar;
+	}
+	@media (min-width: $breakpoint_md) {
+		&::after {
+			content: '';
+			display:block;
+			height:25%;
+			width:2px;
+			background-color: currentColor;
+		}
+	}
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+	.main-navigation {
+		display: block;
+		width: 100%;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+		isolation: isolate;
+		z-index:5;
 
-			ul {
-				left: -999em;
-				top: 0;
+		@media (min-width: $breakpoint_md) {
+			flex: 0 0 $size__site-sidebar;
+		}
+
+		& > div.slide-out-menu {
+			display: block;
+			position:fixed;
+			top:0;
+			left:0;
+			bottom:0;
+			width:100%;
+			color: var(--wp--preset--color--sand);
+			background: var(--wp--preset--gradient--dark-blue-to-medium-blue);
+			transform: translateX(-100%);
+			transition: transform 500ms ease;
+			display: flex;
+			flex-flow:column nowrap;
+			justify-content: center;
+			align-items: center;
+
+			@media (min-width: $breakpoint_md) {
+				width:33%;
+				min-width:300px;
+				border-radius: 0 2rem 2rem 0;
+				display: grid;
+				justify-content: unset;
+				grid-template-columns: ($size__site-sidebar) auto;
+				grid-template-rows: ($size__site-sidebar) auto;
+				grid-template-areas:
+					"toggle menu"
+					"social menu";
 			}
 
-			li {
+			& > div[class*="-menu-container"] {
+				height:auto;
+				text-align: center;
+				@media (min-width: $breakpoint_md) {
+					grid-area: menu;
+					display: grid;
+				}
+			}
+			& > div.menu-social {
+				grid-area: social;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				flex-direction: row;
+				column-gap: 1rem;
 
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
+				@media (min-width: $breakpoint_md) {
+					margin: auto;
+					margin-bottom: 0;
+					flex-direction: column;
+				}
+
+				&::after {
+					content: '';
+					display:block;
+					height:1px;
+					width:50vw;
+					background-color: var(--wp--preset--color--sand);
+					order:0;
+
+					@media (min-width: $breakpoint_md) {
+						order:2;
+						height:20vh;
+						width:2px;
+						background-color: var(--wp--preset--color--white);
+					}
+				}
+
+				ul {
+					flex: 1 1 auto;
+					align-items: unset;
+					justify-content: unset;
+					flex-flow: unset;
+					height: auto;
+					order:2;
+					gap:1rem;
+					color: var(--wp--preset--color--white);
+					@media (min-width: $breakpoint_md) {
+						display: inline;
+						order:0;
+					}
+				}
+				.menu-social-text {
+					color: var(--wp--preset--color--white);
+					font-family: $font__main;
+					flex: 1 1 auto;
+					order:1;
+
+				}
+				@media (min-width: $breakpoint_md) {
+					.vertical-text {
+						writing-mode: vertical-rl;
+						transform: rotate(180deg);
+						padding-left: .25em;
+					}
+					li {
+						transform: rotate(-90deg);
+						margin:0;
+						padding:0;
+						a {
+							margin:unset;
+							font-size: 1rem;
+							line-height: 1rem;
+							padding: .5rem 0;
+							color:var(--wp--preset--color--white);
+							&:hover {
+								border: unset;
+							}
+						}
+					}
+				}
+
+			}
+
+			.menu-inner-sidebar {
+				grid-area: sidebar;
+			}
+
+			ul {
+				display: flex;
+
+				flex-flow: column;
+				justify-content: flex-start;
+				align-items: center;
+
+				list-style: none;
+				margin: auto 0;
+				padding-left: 0;
+
+				@media (min-width: $breakpoint_md) {
+					align-items: flex-start;
+					justify-content: space-around;
+					gap:2rem;
+				}
+
+				ul {
+					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+					float: left;
+					position: absolute;
+					top: 100%;
+					left: -999em;
+					z-index: 99999;
+
+					ul {
+						left: -999em;
+						top: 0;
+					}
+
+					li {
+						&:hover > ul,
+						&.focus > ul {
+							display: block;
+							left: auto;
+						}
+					}
+
+					a {
+						width: 200px;
+					}
+
+					:hover > a,
+					.focus > a {
+					}
+
+					a:hover,
+					a.focus {
+					}
+				}
+
+				li:hover > ul,
+				li.focus > ul {
 					left: auto;
 				}
 			}
 
+			li {
+				position: relative;
+				margin-block:1rem;
+
+				@media (min-width: $breakpoint_md) {
+					margin-block:0;
+					margin-left:1rem;
+				}
+				&:hover > a,
+				&.focus > a {
+				}
+			}
+
 			a {
-				width: 200px;
+				display: block;
+				text-decoration: none;
+				font-size: 1.6rem;
+				line-height:2.5rem;
+
 			}
 
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
+			.current_page_item > a,
+			.current-menu-item > a,
+			.current_page_ancestor > a,
+			.current-menu-ancestor > a {
 			}
 		}
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
+		.menu-toggle {
+			background:unset;
+			border: unset;
+			cursor: pointer;
+			color: var(--wp--preset--color--mustard-400);
+			transform: rotate(270deg) translateY(25px);
+    	font-weight: 400;
+			z-index: 5;
+
+			i {
+				display: none;
+			}
+			@media (min-width: $breakpoint_md) {
+				padding:1rem;
+				margin:auto;
+				display:flex;
+				flex-flow: column;
+				text-align:center;
+				justify-content: center;
+				align-items: center;
+				transform:unset;
+				z-index: 10;
+
+
+				i {
+					display: inline;
+					font-size:2.5rem;
+					transition:transform 500ms ease;
+				}
+				&:hover {
+					i {
+						transform:translateX(.5rem);
+					}
+				}
+			}
+		}
+		&.toggled {
+			.menu-toggle {
+				&:hover {
+					i {
+						transform:translateX(-.5rem);
+					}
+				}
+				i::before {
+					transform:rotateY(180deg);
+				}
+			}
 		}
 	}
 
-	li {
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
+	.alt-navigation, aside {
 		display: none;
+		@media (min-width: $breakpoint_md) {
+			display: flex;
+			flex: 1 1 auto;
+			text-align: center;
+			writing-mode: vertical-lr;
+			transform: rotate(180deg);
+			font-family: $font__main;
+			font-weight:300;
+			letter-spacing: .075rem;
+			font-size: .8rem;
+		}
+
+	}
+	.alt-navigation{
+		ul {
+			list-style: none;
+			margin:0;
+			padding:0;
+		}
+		li {
+			display: inline;
+			padding:1em;
+		}
+		a {
+			color: var(--wp--preset--color--mustard-400);
+
+			&:hover,
+			&:active,
+			&:focus {
+				border-bottom: 0px dotted;
+		    margin-bottom: 0px;
+				border-left: 1px dotted; //UP is DOWN, LEFT is RIGHT due to the translate;
+		    margin-left: -1px;
+			}
+		}
 	}
 
-	.main-navigation ul {
-		display: flex;
+	/* Small menu. */
+	.menu-toggle,
+	.main-navigation.toggled > div {
+		//display: block !important;
+		transform: translateX(0%);
+		z-index:-1;
+	}
+
+
+
+	// @media screen and (min-width: 37.5em) {
+	//
+	// 	.menu-toggle {
+	// 		display: none;
+	// 	}
+	//
+	// 	.main-navigation ul {
+	// 		display: flex;
+	// 	}
+	// }
+
+	.comment-navigation,
+	.posts-navigation,
+	.post-navigation {
+
+		.site-main & {
+			margin: 0 0 1.5em;
+		}
+
+		.nav-links {
+			display: flex;
+		}
+
+		.nav-previous {
+			flex: 1 0 50%;
+		}
+
+		.nav-next {
+			text-align: end;
+			flex: 1 0 50%;
+		}
 	}
 }
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
-
-	.nav-links {
-		display: flex;
-	}
-
-	.nav-previous {
-		flex: 1 0 50%;
-	}
-
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
+body.admin-bar div.site-menu-sidebar, body.admin-bar div#main-menu  {
+	@media (min-width: $breakpoint_md) {
+		top: 32px !important;
 	}
 }

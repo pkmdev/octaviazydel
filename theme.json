@@ -1,0 +1,221 @@
+{
+    "version": 1,
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "name": "White",
+                    "slug": "white",
+                    "color": "#FFFFFF"
+                },
+                {
+                    "name": "Gray Blue 500",
+                    "slug": "gray-blue-500",
+                    "color": "#5C5F64"
+                },
+                {
+                    "name": "Gray Blue 300",
+                    "slug": "gray-blue-300",
+                    "color": "#7D9DAD"
+                },
+                {
+                    "name": "Dary Gray",
+                    "slug": "dark-gray",
+                    "color": "#1D1D1B"
+                },
+                {
+                    "name": "Sand",
+                    "slug": "sand",
+                    "color": "#C6BCA3"
+                },
+                {
+                    "name": "Mustard 500",
+                    "slug": "mustard-500",
+                    "color": "#8A7245"
+                },
+                {
+                    "name": "Mustard 400",
+                    "slug": "mustard-400",
+                    "color": "#8B7245"
+                },
+                {
+                    "name": "Blue 900",
+                    "slug": "blue-900",
+                    "color": "#1A1C2A"
+                },
+                {
+                    "name": "Blue 800",
+                    "slug": "blue-800",
+                    "color": "#1B1D2B"
+                },
+                {
+                    "name": "Blue 600",
+                    "slug": "blue-600",
+                    "color": "#2B3954"
+                },
+                {
+                    "name": "Blue 500",
+                    "slug": "blue-500",
+                    "color": "#305F6E"
+                },
+                {
+                    "name": "Blue 400",
+                    "slug": "blue-400",
+                    "color": "#33606F"
+                },
+                {
+                    "name": "Blue 300",
+                    "slug": "blue-300",
+                    "color": "#425F87"
+                },
+                {
+                    "name": "Blue 200",
+                    "slug": "blue-200",
+                    "color": "#7D9CAC"
+                },
+                {
+                    "name": "Blue 100",
+                    "slug": "blue-100",
+                    "color": "#86A2AD"
+                },
+                {
+                    "name": "Teal 700",
+                    "slug": "teal-700",
+                    "color": "#2C6760"
+                },
+                {
+                    "name": "Teal 600",
+                    "slug": "teal-600",
+                    "color": "#2D6760"
+                },
+                {
+                    "name": "Teal 400",
+                    "slug": "teal-400",
+                    "color": "#43776E"
+                },
+                {
+                    "name": "Green 800",
+                    "slug": "green-800",
+                    "color": "#295149"
+                },
+                {
+                    "name": "Green 600",
+                    "slug": "green-600",
+                    "color": "#34513E"
+                },
+                {
+                    "name": "Green 500",
+                    "slug": "green-500",
+                    "color": "#41776D"
+                },
+                {
+                    "name": "Green 400",
+                    "slug": "green-400",
+                    "color": "#679178"
+                },
+                {
+                    "name": "Green 300",
+                    "slug": "green-300",
+                    "color": "#669078"
+                },
+                {
+                    "name": "Green 200",
+                    "slug": "green-200",
+                    "color": "#8ABC9E"
+                },
+                {
+                    "name": "Purple 600",
+                    "slug": "purple-600",
+                    "color": "#603563"
+                },
+                {
+                    "name": "Purple 400",
+                    "slug": "purple-400",
+                    "color": "#7F5A8C"
+                },
+                {
+                    "name": "Rose 800",
+                    "slug": "rose-800",
+                    "color": "#9B304B"
+                },
+                {
+                    "name": "Rose 600",
+                    "slug": "rose-600",
+                    "color": "#622446"
+                },
+                {
+                    "name": "Rose 400",
+                    "slug": "rose-400",
+                    "color": "#82466C"
+                },
+                {
+                    "name": "Rose 300",
+                    "slug": "rose-300",
+                    "color": "#83466B"
+                },
+                {
+                    "name": "Yellow 500",
+                    "slug": "yellow-500",
+                    "color": "#F5BC0C"
+                },
+                {
+                    "name": "Orange 500",
+                    "slug": "orange-500",
+                    "color": "#B64D48"
+                }
+            ],
+            "gradients": [
+                {
+                    "name": "Dark Blue to Sand",
+                    "slug": "dark-blue-to-sand",
+                    "gradient": "linear-gradient(90deg,rgb(26,28,43) 0%,rgb(200,189,163) 100%)"
+                },
+                {
+                    "name": "Dark Blue to Medium Blue",
+                    "slug": "dark-blue-to-medium-blue",
+                    "gradient": "linear-gradient(90deg,rgb(26,28,43) 0%,rgb(43,57,84) 100%)"
+                },
+                {
+                    "name": "Dark Blue to Gray Blue",
+                    "slug": "dark-blue-to-gray-blue",
+                    "gradient": "linear-gradient(90deg,rgb(26,28,43) 0%,rgb(92,95,100) 100%)"
+                },
+                {
+                    "name": "Light Blue to Dark Blue",
+                    "slug": "light-blue-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,rgb(66,95,135) 0%,rgb(26,28,43) 100%)"
+                },
+                {
+                    "name": "Pale Blue to Dark Blue",
+                    "slug": "pale-blue-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,#86A2AD 0%, #305F6E 46%, #1A1C2A 100%)"
+                },
+                {
+                    "name": "Dark Gray to Dark Blue",
+                    "slug": "dark-gray-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,rgb(29,29,27) 0%, rgb(26,28,43) 100%)"
+                },
+                {
+                    "name": "Light Green to Dark Blue",
+                    "slug": "light-green-to-dark-blue",
+                    "gradient": "linear-gradient(90deg, #669078 0%, #34513E 49%, rgb(26,28,43) 100%)"
+                },
+                {
+                    "name": "Blue Green to Dark Blue",
+                    "slug": "blue-green-to-dark-blue",
+                    "gradient": "linear-gradient(90deg, #41776D 0%, #295149 32%, rgb(26,28,43) 100%)"
+                },
+                {
+                    "name": "Purple to Dark Blue",
+                    "slug": "purple-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,#7F5A8C 0%, #603563 45%, #1A1C2A 100%)"
+                },
+                {
+                    "name": "Rose to Dark Blue",
+                    "slug": "rose-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,#82466C 0%, #622446 52%, #1A1C2A 100%)"
+                }
+            ]
+        }
+    }
+}

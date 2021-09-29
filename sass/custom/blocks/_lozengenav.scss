@@ -1,0 +1,35 @@
+.wp-block-octaviazydel-layout-lozengenav-outer.split__header {
+  min-height:100vh;
+  display:grid;
+  grid-template-rows: 50% 0 50%;
+  grid-template-areas:
+      "pattern"
+      "center"
+      "solid";
+
+  .section__solid, .section__pattern{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .section__pattern {
+    grid-area: pattern;
+    text-align: center;
+    color: var(--wp--preset--color--white);
+    //background-color:white;
+    background-size:100% auto;
+    animation: slide 10s linear infinite;
+  }
+  .section__solid {
+    grid-area: solid;
+  }
+  .section__center {
+    position: static;
+    z-index:2;
+    top:50%;
+    bottom:50%;
+    left:0;
+    right:0;
+    transform:translateY(-.375rem);
+  }
+}

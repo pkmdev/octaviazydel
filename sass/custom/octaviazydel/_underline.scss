@@ -1,0 +1,58 @@
+.custom-underline {
+  position: relative;
+  width:max-content;
+
+  &::after {
+    content: '';
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height: 2px;
+    transition: transform 300ms ease;
+  }
+  & > a:hover {
+    border:unset;
+    margin:unset;
+  }
+  &:hover::after {
+    transform: translateY(5px);
+  }
+  @media (max-width: $breakpoint_md) {
+    margin-inline: auto;
+  }
+}
+
+.disciplines-underline {
+  &::after {
+    background: linear-gradient(
+      90deg,
+      var(--wp--preset--color--teal-700),
+      var(--wp--preset--color--teal-700) 20%,
+      var(--wp--preset--color--green-200) 20%,
+      var(--wp--preset--color--green-200) 40%,
+      var(--wp--preset--color--gray-blue-300) 40%,
+      var(--wp--preset--color--gray-blue-300) 60%,
+      var(--wp--preset--color--purple-400) 60%,
+      var(--wp--preset--color--purple-400) 80%,
+      var(--wp--preset--color--rose-400) 80%,
+      var(--wp--preset--color--rose-400) 100%,
+    );
+  }
+
+}
+
+.solutions-underline {
+  &::after {
+    background: linear-gradient(
+      90deg,
+      var(--wp--preset--color--rose-800),
+      var(--wp--preset--color--rose-800) 33.333%,
+      var(--wp--preset--color--orange-500) 33.333%,
+      var(--wp--preset--color--orange-500) 66.666%,
+      var(--wp--preset--color--yellow-500) 66.666%,
+      var(--wp--preset--color--yellow-500) 100%,
+    );
+
+  }
+}

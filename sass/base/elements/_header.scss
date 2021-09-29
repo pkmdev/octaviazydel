@@ -1,0 +1,12 @@
+header.site-header {
+  .site-branding {
+    position: absolute;
+    top:0;
+    right:0;
+    padding:1rem;
+    img {
+      max-width:200px;
+      height:auto;
+    }
+  }
+}
