@@ -1,11 +1,18 @@
 .site {
-	min-height:100%;
 	display: grid;
-	grid-template-columns: ($size__site-sidebar) auto;
+	grid-template-columns: auto;
 	grid-template-areas:
-		"header header"
-		"sidebar main"
-		"footer footer";
+		"header"
+		"main"
+		"sidebar"
+		"footer";
+	@media (min-width: $breakpoint_md) {
+		grid-template-columns: ($size__site-sidebar) auto;
+		grid-template-areas:
+			"header header"
+			"sidebar main"
+			"footer footer";
+	}
 }
 
 .site-header {
@@ -14,7 +21,9 @@
 
 .site-main {
 	grid-area: main;
-	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
+	@media (min-width: $breakpoint_md) {
+		margin-left: -$size__site-sidebar;
+	}
 }
 
 .widget-area {

@@ -1,18 +1,29 @@
 
 import { registerBlockType, registerBlockStyle } from '@wordpress/blocks';
 
-import './style.scss';
 import './editor.scss';
 
 /**
  * Import Block subfiles
  */
 
-// import * as hero from './hero';
+import * as fiftyfiftyInner from './layout/layout-fiftyfifty-inner';
+import * as fiftyfiftyOuter from './layout/layout-fiftyfifty-outer';
+import * as lozengenavOuter from './layout/layout-lozengenav-outer';
+import * as lozengenavInner from './layout/layout-lozengenav-inner';
+import * as valuesInner from './layout/layout-values-inner';
+import * as valuesOuter from './layout/layout-values-outer';
 
-const family = 'oz'
+const family = 'octaviazydel'
 
-const blocks = [];
+const blocks = [
+  fiftyfiftyInner,
+  fiftyfiftyOuter,
+  lozengenavOuter,
+  lozengenavInner,
+  valuesInner,
+  valuesOuter
+];
 
 function registerBlock( block ) {
     const { name, settings } = block;

@@ -4,6 +4,11 @@ const { PanelColorSettings, withColors, getColorClassName, MediaUpload, MediaUpl
 import { __experimentalNumberControl as NumberControl } from '@wordpress/components';
 import { __experimentalAlignmentMatrixControl as AlignmentMatrixControl } from "@wordpress/components";
 import { __experimentalRadio as Radio, __experimentalRadioGroup as RadioGroup } from '@wordpress/components';
+import {
+	useBlockProps,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings
+} from '@wordpress/block-editor';
+
 import classnames from 'classnames';
 import { forwardRef } from '@wordpress/element';
 const { Fragment } = wp.element;
@@ -29,6 +34,7 @@ class BackgroundStyle extends Component {
     this.setDimensionPixels = this.setDimensionPixels.bind(this);
     this.setFocalPoint = this.setFocalPoint.bind(this);
     this.setBackgroundColor = this.setBackgroundColor.bind(this);
+    this.setBackgroundGradient = this.setBackgroundGradient.bind(this);
   }
 
   setImage(x) {
@@ -72,27 +78,41 @@ class BackgroundStyle extends Component {
     this.props.background = { ...this.props.background, backgroundColor: x };
     this.onUpdate(this.props.background);
   }
+  setBackgroundGradient(x) {
+    if (typeof x == 'undefined') x = false;
+    this.props.background = { ...this.props.background, backgroundGradient: x };
+    this.onUpdate(this.props.background);
+  }
 
   render() {
-
-     let { image = false, video = false, alignment = 'center center', size = 'cover', fixedDimension = false, backgroundType = 'image', dimension = 50, dimensionPixels = 200, focalPoint = {x: '.5',y: '.5'}, backgroundColor = {} } = this.props.background;
-
+    const gradients = wp.data.select('core/block-editor').getSettings().gradients;
+  	const colors = wp.data.select('core/block-editor').getSettings().colors;
+     let { image = false, video = false, alignment = 'center center', size = 'cover', fixedDimension = false, backgroundType = 'image', dimension = 50, dimensionPixels = 200, focalPoint = {x: '.5',y: '.5'}, backgroundColor = '', backgroundGradient = '' } = this.props.background;
+     console.log(gradients, colors);
      return [
-       <Fragment>
-         <PanelColorSettings
-           title={__('Background Color')}
-           colorSettings={[
-             {
-               value: backgroundColor,
-               onChange: this.setBackgroundColor,
-               label: __('Background Color')
-             },
-           ]}
-         />
-         <PanelBody title="Background Image">
+       <Panel>
+        <PanelBody title="Backgroud Settings">
+         <PanelColorGradientSettings
+           title={ __("Background Color") }
+           initialOpen={false}
+           settings={ [ {
+             colorValue: backgroundColor,
+             gradientValue: backgroundGradient,
+             colors:colors,
+             gradients:gradients,
+             label:__("Choose a color or a gradient"),
+             onColorChange:this.setBackgroundColor,
+             onGradientChange:this.setBackgroundGradient
+           }
+            ] }
+         >
+         </PanelColorGradientSettings>
+         <PanelBody title="Background Image" initialOpen={false}>
 
             <PanelRow>
               <h2>Background Type</h2>
+            </PanelRow>
+            <PanelRow>
               <RadioGroup label="Action" onChange={ this.setBackgroundType } checked={ backgroundType }>
                 <Radio value="image">Image</Radio>
                 <Radio value="video">Video</Radio>
@@ -219,8 +239,9 @@ class BackgroundStyle extends Component {
           </Fragment>
         : ''}
          </PanelBody>
+        </PanelBody>
 
-       </Fragment>
+       </Panel>
      ];
   }
 }
@@ -235,12 +256,13 @@ class BackgroundStyle extends Component {
 
 
 const BackgroundStyleRender = ( { className, children, background, style = {}, vidstyle = {} }, ref ) => {
-  let { image = false, video = false, alignment = 'center center', size = 'cover', fixedDimension = false, backgroundType = 'image', dimension = 50, dimensionPixels = 200, focalPoint = {x: '.5',y: '.5'}, backgroundColor = {} } = background;
+  let { image = false, video = false, alignment = 'center center', size = 'cover', fixedDimension = false, backgroundType = 'image', dimension = 50, dimensionPixels = 200, focalPoint = {x: '.5',y: '.5'}, backgroundColor = '', backgroundGradient } = background;
 	const classNames = classnames( className, 'custom__background' );
+  style.backgroundImage = backgroundGradient;
   if (image) {
-    var xl = typeof image.sizes.large !== 'undefined' ? image.sizes.large.url : image.url;
-    style.background = 'url('+image.url+')';
-    style.backgroundImage =  '-webkit-image-set(url('+image.sizes.medium.url+') 1x, url('+ xl+') 3x)'; // :
+    var xl = typeof image?.sizes?.large !== 'undefined' ? image.sizes.large.url : image.url;
+    //style.background = 'url('+image.url+')';
+    style.backgroundImage =  '-webkit-image-set(url('+(typeof image.sizes?.medium?.url !== 'undefined' ? image.sizes.medium.url : image.url)+') 1x, url('+ xl+') 3x)'+(style.backgroundImage ? ', '+style.backgroundImage : ''); // :
     style.backgroundRepeat = 'no-repeat';
     style.backgroundPosition = alignment;
     style.backgroundSize =  (size != 'width' && size != 'height'  ? size : (fixedDimension ? (size == 'width' ? dimensionPixels+'px auto' : 'auto '+dimensionPixels+'px') : (size == 'width' ? dimension+'% auto' : 'auto '+dimension+'%')));

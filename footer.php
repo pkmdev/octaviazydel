@@ -12,19 +12,13 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'octaviazydel' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'octaviazydel' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'octaviazydel' ), 'octaviazydel', '<a href="https://pkmo.dev">Peter K Morrison</a>' );
-				?>
-		</div><!-- .site-info -->
+		<div class="footer-inner">
+			<?php if (!is_front_page()) { ?>
+				<?php get_template_part( 'template-parts/footer', 'page' ); ?>
+			<?php } else { ?>
+				<?php get_template_part( 'template-parts/footer', 'home' ); ?>
+			<?php } ?>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

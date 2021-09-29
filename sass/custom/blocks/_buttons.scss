@@ -1,0 +1,20 @@
+.wp-block-button__link {
+  background-color: transparent;
+  color: var(--wp--preset--color--sand, #C6BCA3);
+  border: 2px solid var(--wp--preset--color--sand, #C6BCA3);
+  border-radius: 10px;
+  padding: .25em 3em;
+  transition: color 300ms ease, background 300ms ease;
+
+  &:hover {
+    background-color: var(--wp--preset--color--sand, #C6BCA3);
+    color: var(--wp--preset--color--blue-800);
+    margin:unset;
+    border: 2px solid currentColor;
+  }
+}
+@media (max-width: $breakpoint_md) {
+  .wp-block-buttons {
+    justify-content: center;
+  }
+}

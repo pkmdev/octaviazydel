@@ -1,16 +1,16 @@
 a {
-	color: $color__link;
+	color: currentColor;
 	text-decoration: none;
 
 	&:visited {
-		color: $color__link-visited;
+		color: currentColor;
 	}
 
 	&:hover,
 	&:focus,
 	&:active {
 		outline:0;
-		color: $color__link-hover;
+		color: currentColor;
 	}
 
 	&:hover,

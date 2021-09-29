@@ -1,0 +1,28 @@
+@import "../../sass/abstracts/abstracts";
+@import "../../sass/custom/custom";
+
+.wp-block-octaviazydel-layout-fiftyfifty-outer {
+	color: var(--wp--preset--color--sand);
+	& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		height:100%;
+		display: flex;
+		flex-flow:row wrap;
+		&>div {
+			flex: 1 0 50%;
+		}
+		&>div.block-list-appender {
+			position: absolute;
+			bottom:0;
+		}
+	}
+}
+.fifityfifty__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	margin-inline:2rem;
+	height:100%;
+	& > div {
+		height: 100%;
+	}
+	.wp-block-octaviazydel-layout-fiftyfifty-inner {
+		height:100%;
+	}
+}

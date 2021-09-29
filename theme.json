@@ -9,9 +9,14 @@
                     "color": "#FFFFFF"
                 },
                 {
-                    "name": "Gray Blue",
-                    "slug": "gray-blue",
+                    "name": "Gray Blue 500",
+                    "slug": "gray-blue-500",
                     "color": "#5C5F64"
+                },
+                {
+                    "name": "Gray Blue 300",
+                    "slug": "gray-blue-300",
+                    "color": "#7D9DAD"
                 },
                 {
                     "name": "Dary Gray",
@@ -74,6 +79,11 @@
                     "color": "#86A2AD"
                 },
                 {
+                    "name": "Teal 700",
+                    "slug": "teal-700",
+                    "color": "#2C6760"
+                },
+                {
                     "name": "Teal 600",
                     "slug": "teal-600",
                     "color": "#2D6760"
@@ -124,6 +134,11 @@
                     "color": "#7F5A8C"
                 },
                 {
+                    "name": "Rose 800",
+                    "slug": "rose-800",
+                    "color": "#9B304B"
+                },
+                {
                     "name": "Rose 600",
                     "slug": "rose-600",
                     "color": "#622446"
@@ -145,55 +160,60 @@
                 },
                 {
                     "name": "Orange 500",
-                    "slug": "orange-700",
+                    "slug": "orange-500",
                     "color": "#B64D48"
                 }
             ],
             "gradients": [
                 {
                     "name": "Dark Blue to Sand",
-                    "slug": "dark-blue-sand",
-                    "gradient": "linear-gradient(135deg,rgb(26,28,43) 0%,rgb(200,189,163) 100%)"
+                    "slug": "dark-blue-to-sand",
+                    "gradient": "linear-gradient(90deg,rgb(26,28,43) 0%,rgb(200,189,163) 100%)"
                 },
                 {
                     "name": "Dark Blue to Medium Blue",
-                    "slug": "dark-blue-medium-blue",
-                    "gradient": "linear-gradient(135deg,rgb(26,28,43) 0%,rgb(43,57,84) 100%)"
+                    "slug": "dark-blue-to-medium-blue",
+                    "gradient": "linear-gradient(90deg,rgb(26,28,43) 0%,rgb(43,57,84) 100%)"
                 },
                 {
                     "name": "Dark Blue to Gray Blue",
-                    "slug": "dark-blue-gray-blue",
-                    "gradient": "linear-gradient(135deg,rgb(26,28,43) 0%,rgb(92,95,100) 100%)"
+                    "slug": "dark-blue-to-gray-blue",
+                    "gradient": "linear-gradient(90deg,rgb(26,28,43) 0%,rgb(92,95,100) 100%)"
                 },
                 {
                     "name": "Light Blue to Dark Blue",
-                    "slug": "light-blue-dark-blue",
-                    "gradient": "linear-gradient(135deg,rgb(66,95,135) 0%,rgb(26,28,43) 100%)"
+                    "slug": "light-blue-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,rgb(66,95,135) 0%,rgb(26,28,43) 100%)"
                 },
                 {
                     "name": "Pale Blue to Dark Blue",
-                    "slug": "pale-blue-dark-blue",
-                    "gradient": "linear-gradient(135deg,#86A2AD 0%, #305F6E 46%, #1A1C2A 100%)"
+                    "slug": "pale-blue-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,#86A2AD 0%, #305F6E 46%, #1A1C2A 100%)"
                 },
                 {
                     "name": "Dark Gray to Dark Blue",
-                    "slug": "dark-gray-dark-blue",
-                    "gradient": "linear-gradient(135deg,rgb(29,29,27) 0%, rgb(26,28,43) 100%)"
+                    "slug": "dark-gray-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,rgb(29,29,27) 0%, rgb(26,28,43) 100%)"
                 },
                 {
                     "name": "Light Green to Dark Blue",
-                    "slug": "light-green-dark-blue",
-                    "gradient": "linear-gradient(135deg, #669078 0%, #34513E 49%, rgb(26,28,43) 100%)"
+                    "slug": "light-green-to-dark-blue",
+                    "gradient": "linear-gradient(90deg, #669078 0%, #34513E 49%, rgb(26,28,43) 100%)"
+                },
+                {
+                    "name": "Blue Green to Dark Blue",
+                    "slug": "blue-green-to-dark-blue",
+                    "gradient": "linear-gradient(90deg, #41776D 0%, #295149 32%, rgb(26,28,43) 100%)"
                 },
                 {
                     "name": "Purple to Dark Blue",
-                    "slug": "purple-dark-blue",
-                    "gradient": "linear-gradient(135deg,#7F5A8C 0%, #603563 45%, #1A1C2A 100%)"
+                    "slug": "purple-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,#7F5A8C 0%, #603563 45%, #1A1C2A 100%)"
                 },
                 {
                     "name": "Rose to Dark Blue",
-                    "slug": "rose-dark-blue",
-                    "gradient": "linear-gradient(135deg,#82466C 0%, #622446 52%, #1A1C2A 100%)"
+                    "slug": "rose-to-dark-blue",
+                    "gradient": "linear-gradient(90deg,#82466C 0%, #622446 52%, #1A1C2A 100%)"
                 }
             ]
         }
